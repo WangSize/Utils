@@ -1,0 +1,1 @@
+WechatAndQQutil类跟ShareUtil配套
