@@ -25,7 +25,7 @@ public class GsonUtil {
      * @param object
      * @return
      */
-    public static String JsonToJson(Object object) {
+    public static String toJson(Object object) {
         String gsonString = null;
         if (gson != null) {
             gsonString = gson.toJson(object);
