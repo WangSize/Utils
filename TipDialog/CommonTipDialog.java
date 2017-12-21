@@ -1,4 +1,3 @@
-package com.norca.myapplication;
 
 import android.app.Dialog;
 import android.content.Context;
