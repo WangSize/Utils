@@ -1,1 +1,1 @@
-WechatAndQQutil类跟ShareUtil配套
+整理常用工具类
