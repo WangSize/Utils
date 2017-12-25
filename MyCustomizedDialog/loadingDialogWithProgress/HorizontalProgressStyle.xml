@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HorizontalProgressView">
+        <attr name="strokeWidth" format="dimension" />
+        <!--进度条底层颜色-->
+        <attr name="backgroundColor" format="color"/>
+        <!--进度条表层颜色-->
+        <attr name="progressColor" format="color"/>
+    </declare-styleable>
+</resources>

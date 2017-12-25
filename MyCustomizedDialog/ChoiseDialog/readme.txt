@@ -1,0 +1,1 @@
+单选dialog和多选dialog公用一个布局

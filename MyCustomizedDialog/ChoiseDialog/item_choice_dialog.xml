@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+                android:id="@+id/lin_item"
+    android:clickable="true">
+<ImageView
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:id="@+id/iv_item"
+    android:scaleType="fitXY"
+    android:layout_marginTop="5dp"
+    android:src="@drawable/ic_dialog_choice_red_circle"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/tv_info"
+        android:textSize="16sp"
+        android:textColor="#0c0306"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:text="单选 dialog"/>
+</LinearLayout>
