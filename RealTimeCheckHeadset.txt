@@ -1,0 +1,60 @@
+	private AudioManager mAudioManager;
+    public static boolean mHasHeadSet = false; //是否插入耳机
+    private BroadcastReceiver headsetPlugReceiver;
+    private static HeadsetListener mHeadsetListener = null;
+
+    private void registerHeadsetPlugReceiver(Context context) {
+        headsetPlugReceiver = new HeadsetPlugReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.HEADSET_PLUG");
+        context.registerReceiver(headsetPlugReceiver, intentFilter);
+    }
+
+    private void unRegisterHeadsetPlugReceiver(Context context){
+        if (headsetPlugReceiver != null ){
+            context.unregisterReceiver(headsetPlugReceiver);
+            headsetPlugReceiver = null;
+        }
+    }
+
+    private void initAudioManager(){
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        mHasHeadSet = mAudioManager.isWiredHeadsetOn();
+    }
+
+    public static void setHeadsetListener(HeadsetListener headsetListener){
+        mHeadsetListener = headsetListener;
+    }
+
+    public interface HeadsetListener{
+        void isWiredHeadsetOn(boolean on);
+    }
+
+    /**
+     * 实时监听耳机插入拔出状态
+     */
+    class HeadsetPlugReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.hasExtra("state")){
+                if (intent.getIntExtra("state", 0) == 0){
+                    mHasHeadSet = false;
+                    if (mAudioManager != null) {
+                        mAudioManager.setSpeakerphoneOn(true);
+                        
+                    }
+                }
+                else if (intent.getIntExtra("state", 0) == 1){
+                    mHasHeadSet = true;
+                    if (mAudioManager != null) {
+                     
+                        mAudioManager.setSpeakerphoneOn(false);
+                    }
+                    if(mHeadsetListener != null){
+                        mHeadsetListener.isWiredHeadsetOn(true);
+                    }
+                }
+
+            }
+        }
+    }
