@@ -40,9 +40,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by Administrator on 2016/4/27.
- */
+
 public class ImageUtil {
 
     /**

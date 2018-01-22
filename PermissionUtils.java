@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Created by 61705 on 2017/11/10.
  * 全选没获取到的提示全在父类做显示了 所以只需要做权限的调用就好，如要改提示内容下面的switch里改就行
  *类中用到BuildConfig类是gradle生成的类，在使用时导入即可
  */

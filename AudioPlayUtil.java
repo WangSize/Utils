@@ -5,9 +5,6 @@ import android.media.MediaPlayer.*;
 import java.io.File;
 import java.io.FileInputStream;
 
-/**
- * Created by Administrator on 2017/12/8.
- */
 
 public class AudioPlayUtil {
 

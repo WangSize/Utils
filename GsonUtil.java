@@ -4,9 +4,6 @@ import com.google.gson.reflect.TypeToken;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Administrator on 2017/12/20.
- */
 
 public class GsonUtil {
     private static Gson gson = null;

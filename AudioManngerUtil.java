@@ -5,10 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 
-/**
- * Created by ZhaoXunfei on 2017/11/28.
- * 耳机监听 控制扬声器
- */
+
 
 public class AudioManngerUtil {
 
