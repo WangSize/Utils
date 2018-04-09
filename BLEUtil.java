@@ -103,7 +103,7 @@ public class BLEUtil {
         mOnKeyDownListner = listener;
     }
 
-    public void setOnBatteryStatusListner(OnBatteryStatusListener listener){
+    public void setOnBatteryStatusListener(OnBatteryStatusListener listener){
         mOnBatteryStatusListner = listener;
     }
 
@@ -221,16 +221,16 @@ public class BLEUtil {
      */
     public void searchingDevice(){
         if (mBluetoothGatt != null && mWriteDataCharac != null) {
-            Log.d(TAG, "寻找设备");
+            Log.d(TAG, "尝试写入寻找设备");
             isWriting = true;
             mWriteDataCharac.setValue(searchingDevice);
             mWriteDataCharac.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);
-            mHandler.post(new Runnable() {
+            mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mBluetoothGatt.writeCharacteristic(mWriteDataCharac);
                 }
-            });
+            },500);
 
 
         }
@@ -387,11 +387,11 @@ public class BLEUtil {
             super.onConnectionStateChange(gatt, status, newState);
             //连接或断开连接操作是否成功
             if (status == BluetoothGatt.GATT_SUCCESS) {
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 if (newState == BluetoothProfile.STATE_CONNECTED) {
                     gatt.discoverServices();
                 } else {
@@ -407,6 +407,8 @@ public class BLEUtil {
             } else {
                 if (newState == BluetoothProfile.STATE_DISCONNECTED ) {
                     //连接失败，重连
+                    isStop = true;
+                    isWriting = true;
                     mBluetoothGatt.disconnect();
                     mBluetoothGatt.close();
                     mBluetoothGatt = null;
