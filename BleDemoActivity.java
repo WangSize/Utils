@@ -1,7 +1,5 @@
-package com.beikatech.bledemo;
 
-import static android.bluetooth.BluetoothAdapter.STATE_CONNECTING;
-
+import android.bluetooth.BluetoothAdapter.STATE_CONNECTING;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
