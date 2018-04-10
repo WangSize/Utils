@@ -387,11 +387,7 @@ public class BLEUtil {
             super.onConnectionStateChange(gatt, status, newState);
             //连接或断开连接操作是否成功
             if (status == BluetoothGatt.GATT_SUCCESS) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+               
                 if (newState == BluetoothProfile.STATE_CONNECTED) {
                     gatt.discoverServices();
                 } else {
